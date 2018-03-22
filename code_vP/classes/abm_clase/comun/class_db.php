@@ -30,9 +30,9 @@ class class_db{
 	
 	public function __construct($host, $user, $pass, $db){
 		$this->dbHost = "localhost";
-		$this->dbUser = "root";
-		$this->dbPass = "root";
-		$this->dbName = "CAMEXAM";
+		$this->dbUser = "nmalva_nmalva";
+		$this->dbPass = "Wara1441";
+		$this->dbName = "nmalva_camexam_bec";
 	}
 	
 	public function connect(){

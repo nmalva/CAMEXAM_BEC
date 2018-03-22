@@ -32,7 +32,7 @@ class class_db{
 		$this->dbHost = "localhost";
 		$this->dbUser = "nmalva_nmalva";
 		$this->dbPass = "Wara1441";
-		$this->dbName = "nmalva_bec;
+		$this->dbName = "nmalva_camexam_bec";
 	}
 	
 	public function connect(){

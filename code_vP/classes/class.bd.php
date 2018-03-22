@@ -2,9 +2,9 @@
 class bd
 {
   private $servidor="localhost";
-  private $usuario="root";
-  private $clave="root";
-  private $basededatos="CAMEXAM";
+  private $usuario="nmalva_nmalva";
+  private $clave="Wara1441";
+  private $basededatos="nmalva_camexam_bec";
   private $conexion;
 
   function __construct()

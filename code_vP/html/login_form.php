@@ -22,7 +22,7 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="login" 
-                style="background:url(../../assets/admin/pages/media/bg/8.jpg) no-repeat center center fixed;
+                style="background:url(../../config/imgs/background.jpg) no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -32,7 +32,7 @@
     <!-- BEGIN LOGO -->
 <div class="logo">
 	<a href="index.html">
-	<img src="../../assets/admin/layout3/img/logo-academia-4.png" alt=""/>
+	<img src="../../config/imgs/logo_medium.png" alt=""/>
 	</a>
 </div>
             

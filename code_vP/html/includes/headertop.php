@@ -68,7 +68,7 @@ return ($string);
 		<div class="container">
 			<!-- BEGIN LOGO -->
 			<div class="page-logo">
-				<a href="exam_menu.php"><img src="../../assets/admin/layout3/img/logo-academia-2.jpg" alt="logo" ></a>
+				<a href="exam_menu.php"><img src="../../config/imgs/logo_small.png" alt="logo" ></a>
 			</div>
 			<!-- END LOGO -->
 			<!-- BEGIN RESPONSIVE MENU TOGGLER -->

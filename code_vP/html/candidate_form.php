@@ -652,7 +652,8 @@ function getOptionPrepCentre($prc_id_user, $prc_id_candidate) //this is for chan
                 							</form>
                 							<!-- END FORM-->
                 						</div>
-                						 <p> <a href='documents/Permiso_Foto.docx'>Download Photo Conent Scan</a></p>
+                						 <p> <a href='../../config/docs/photo_consent_u.pdf'>Download Photo Consent Under 18</a></p>
+                						 <p> <a href='../../config/docs/photo_consent_o.pdf'>Download Photo Consent Over 18</a></p>
                 						 <p style="color: red"> <br/>Para finalizar la inscripción, debe cambiar el estado a "SENT" en candidate workflow.</p>
 
                 						  
