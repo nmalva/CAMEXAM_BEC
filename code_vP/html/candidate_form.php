@@ -373,9 +373,9 @@ function getOptionPrepCentre($prc_id_user, $prc_id_candidate) //this is for chan
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label col-md-3">Address</label>
+															<label class="control-label col-md-3">Address <br/> (Include the city)</label>
 															<div class="col-md-9">
-																<input type="text" name="can_adress" class="form-control" value ="<?php echo $can_adress;?>" >
+																<input type="text" name="can_adress" class="form-control" placeholder="Example: Paseo del Roble 800, Alihuen Bajo - San Martín de los Andes" value ="<?php echo $can_adress;?>" >
 															</div>
 														</div>
 													</div>

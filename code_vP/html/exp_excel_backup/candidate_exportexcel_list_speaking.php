@@ -67,6 +67,15 @@ function get_venue($get_exa_id){
     return ($string);
 }
 
+function get_newepaname($can_packingcodespeaking){
+    $class_bd1 = new bd();
+    $sql="SELECT * FROM ExamPlaceAula
+        WHERE epa_id = {$can_packingcodespeaking}";
+        $resultado = $class_bd1->ejecutar($sql);
+        $r=$class_bd1->retornar_fila($resultado);
+
+        return ($r["epa_packingcode"]);
+}
 
 /*OBJECTS*/
 $objPHPExcel = new PHPExcel();
@@ -90,13 +99,14 @@ $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('A1', "Exam/Date")
             ->setCellValue('B1', $file_name)
             ->setCellValue('A2', "Paper Name")
-            ->setCellValue('B2', "Reading and use of English")
+            ->setCellValue('B2', "Speaking")
 
             ->setCellValue('A5', 'Number')
             ->setCellValue('B5', 'Name')
             ->setCellValue('C5', 'Time')
-            ->setCellValue('D5', 'P. Code')
-            ->setCellValue('E5', 'Present (S/N)');
+            ->setCellValue('D5', 'Date')
+            ->setCellValue('E5', 'P. Code')
+            ->setCellValue('F5', 'Present (S/N)');
 
 // Miscellaneous glyphs, UTF-8
 
@@ -106,20 +116,41 @@ $sql = "SELECT * FROM Candidate
         INNER JOIN ExamPlace ON Candidate.exp_id=ExamPlace.exp_id
         LEFT JOIN ExamPlaceAula ON Candidate.epa_id=ExamPlaceAula.epa_id
         WHERE exa_id='{$get_exa_id}' AND can_status='2'
-        ORDER BY Candidate.can_candidatenum"; // can_status=1 --> confirmed
-$resultado=$class_bd->ejecutar_charset($sql);
+        ORDER BY Candidate.can_datespeaking, Candidate.can_packingcodespeaking, Candidate.can_timespeaking"; // can_status=1 --> confirmed
+$resultado=$class_bd->ejecutar($sql);
 $i=6;
 while ($line = $class_bd->retornar_fila($resultado)){
     $gender=($line["can_gender"]==0 ? "Female" : "Male");
     $date= $class_utiles->fecha_mysql_php($line["can_datebirth"]);
     $name = $line["can_firstname"]." ".$line["can_lastname"];
+    $date_exam = $class_utiles->fecha_mysql_php($line["exa_date"]);
+
+    if($line["can_datespeaking"]== NULL || $r["can_datespeaking"]=="0000-00-00" )
+        $date_speaking = $date_exam;
+    else
+        $date_speaking = $class_utiles->fecha_mysql_php($line["can_datespeaking"]);
+
+
+
+    if($line["can_packingcodespeaking"]== NULL || $r["can_packingcodespeaking"]=="0"){
+        $epa_name = $line["epa_packingcode"];
+    }
+    else{
+        $epa_name = get_newepaname($line["can_packingcodespeaking"]);
+    }
+
+
+
+
+
 
     $objPHPExcel->setActiveSheetIndex(0)
     ->setCellValue('A'.$i,$line["can_candidatenum"])
     ->setCellValue('B'.$i,$name)
-    ->setCellValue('C'.$i,$line["can_timereadinganduseofenglish"])
-    ->setCellValue('D'.$i,$line["epa_packingcode"])
-    ->setCellValue('E'.$i,"");
+    ->setCellValue('C'.$i,$line["can_timespeaking"])
+    ->setCellValue('D'.$i,$date_speaking)
+    ->setCellValue('E'.$i,$epa_name)
+    ->setCellValue('F'.$i,"");
     $i++;
 }
  
@@ -144,7 +175,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename='.$file_name.'_Reading_and_useofenglish.xls');
+header('Content-Disposition: attachment;filename='.$file_name.'_Speaking.xls');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 //header('Cache-Control: max-age=1');

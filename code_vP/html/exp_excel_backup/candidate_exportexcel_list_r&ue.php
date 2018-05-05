@@ -107,7 +107,7 @@ $sql = "SELECT * FROM Candidate
         LEFT JOIN ExamPlaceAula ON Candidate.epa_id=ExamPlaceAula.epa_id
         WHERE exa_id='{$get_exa_id}' AND can_status='2'
         ORDER BY Candidate.can_candidatenum"; // can_status=1 --> confirmed
-$resultado=$class_bd->ejecutar_charset($sql);
+$resultado=$class_bd->ejecutar($sql);
 $i=6;
 while ($line = $class_bd->retornar_fila($resultado)){
     $gender=($line["can_gender"]==0 ? "Female" : "Male");

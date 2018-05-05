@@ -80,21 +80,22 @@ $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('D1', 'AIC Required')
             ->setCellValue('E1', 'Gender')
             ->setCellValue('F1', 'Candidate type*')
-            ->setCellValue('G1', 'Preparation centre')
-            ->setCellValue('H1', 'Packing code')
-            ->setCellValue('I1', 'Date of birth*')
-            ->setCellValue('J1', 'Country code')
-            ->setCellValue('K1', 'Area code')
-            ->setCellValue('L1', 'Contact number')
-            ->setCellValue('M1', 'Mobile number')
-            ->setCellValue('N1', 'Email address')
-            ->setCellValue('O1', 'ID number')
-            ->setCellValue('P1', 'Campaign code')
-            ->setCellValue('Q1', 'Address line1')
-            ->setCellValue('R1', 'Address line2')
-            ->setCellValue('S1', 'City')
-            ->setCellValue('T1', 'Post/Area code')
-            ->setCellValue('U1', 'Country');
+            ->setCellValue('G1', 'Exam Place')
+            ->setCellValue('H1', 'Preparation centre')
+            ->setCellValue('I1', 'Packing code')
+            ->setCellValue('J1', 'Date of birth*')
+            ->setCellValue('K1', 'Country code')
+            ->setCellValue('L1', 'Area code')
+            ->setCellValue('M1', 'Contact number')
+            ->setCellValue('N1', 'Mobile number')
+            ->setCellValue('O1', 'Email address')
+            ->setCellValue('P1', 'ID number')
+            ->setCellValue('Q1', 'Campaign code')
+            ->setCellValue('R1', 'Address line1')
+            ->setCellValue('S1', 'Address line2')
+            ->setCellValue('T1', 'City')
+            ->setCellValue('U1', 'Post/Area code')
+            ->setCellValue('V1', 'Country');
 
 // Miscellaneous glyphs, UTF-8
 
@@ -104,7 +105,7 @@ $sql = "SELECT * FROM Candidate
         INNER JOIN ExamPlace ON Candidate.exp_id=ExamPlace.exp_id
         LEFT JOIN ExamPlaceAula ON Candidate.epa_id=ExamPlaceAula.epa_id
         WHERE exa_id='{$get_exa_id}' AND can_status='2'
-        ORDER BY ExamPlace.exp_name ASC, PrepCentre.prc_name ASC, Candidate.can_lastname ASC"; // can_status=1 --> confirmed
+        ORDER BY Candidate.can_candidatenum ASC, ExamPlace.exp_name, PrepCentre.prc_name, Candidate.can_lastname"; // can_status=1 --> confirmed
 $resultado=$class_bd->ejecutar($sql);
 $i=2;
 while ($line = $class_bd->retornar_fila($resultado)){
@@ -118,21 +119,22 @@ while ($line = $class_bd->retornar_fila($resultado)){
     ->setCellValue('D'.$i,"")
     ->setCellValue('E'.$i,$gender)
     ->setCellValue('F'.$i,$can_candidate_type)
-    ->setCellValue('G'.$i,$line["prc_name"])
-    ->setCellValue('H'.$i,$line["epa_packingcode"]) //before  antes ->setCellValue($line["can_packingcode"],false, $class_excelexport_int);
-    ->setCellValue('I'.$i,$date)
-    ->setCellValue('J'.$i,"")
+    ->setCellValue('G'.$i,$line["exp_name"])
+    ->setCellValue('H'.$i,$line["prc_name"])
+    ->setCellValue('I'.$i,$line["epa_packingcode"]) //before  antes ->setCellValue($line["can_packingcode"],false, $class_excelexport_int);
+    ->setCellValue('J'.$i,$date)
     ->setCellValue('K'.$i,"")
-    ->setCellValue('L'.$i,"") //se saco por error (int)$line["can_telephone"]
-    ->setCellValue('M'.$i,"") // se saco por error $line["can_cellphone"]
-    ->setCellValue('N'.$i,$line["can_email"])
-    ->setCellValue('O'.$i,$line["can_dni"]) //before  ->setCellValue($line["can_dni"],false, $class_excelexport_int);
-    ->setCellValue('P'.$i,"")
+    ->setCellValue('L'.$i,"")
+    ->setCellValue('M'.$i,(int)$line["can_telephone"])
+    ->setCellValue('N'.$i,(int)$line["can_cellphone"])
+    ->setCellValue('O'.$i,$line["can_email"])
+    ->setCellValue('P'.$i,$line["can_dni"]) //before  ->setCellValue($line["can_dni"],false, $class_excelexport_int);
     ->setCellValue('Q'.$i,"")
     ->setCellValue('R'.$i,"")
     ->setCellValue('S'.$i,"")
     ->setCellValue('T'.$i,"")
-    ->setCellValue('U'.$i,"");
+    ->setCellValue('U'.$i,"")
+    ->setCellValue('V'.$i,"");
     $i++;
 }
  
@@ -158,6 +160,9 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('R')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('T')->setAutoSize(true);
 $objPHPExcel->getActiveSheet()->getColumnDimension('U')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('V')->setAutoSize(true);
+
+
 
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle("Template");
@@ -169,7 +174,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Redirect output to a client’s web browser (Excel5)
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename='.$file_name.'_external.xls');
+header('Content-Disposition: attachment;filename='.$file_name.'_internal.xls');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 //header('Cache-Control: max-age=1');
