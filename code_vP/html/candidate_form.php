@@ -442,7 +442,7 @@ function getOptionPrepCentre($prc_id_user, $prc_id_candidate) //this is for chan
         																}
     																?>
 																	<span class="help-block">
-																In case the candidate has any disability pleas select "Yes".  </span>
+																In case the candidate has any disability please select "Yes".  </span>
 																</div>
 															</div>
 														</div>
@@ -829,7 +829,7 @@ function newupdateCandidate(){
                 	if (new_can_id==-10)
              		   alert ("Error: There is already a Candidate registered width the same DNI in a recentrly closed exam or in an open Exam");
                 	else{
-                	   alert ("The candidate was added!. To be confirmed, please complete the documents and the workflow to be verified")
+                	   alert ("The candidate was added!. To be confirmed, please complete the documents and the workflow to be verified");
              		   redirect(new_can_id);
 
                 	}    

@@ -11,7 +11,6 @@ class bd
   {
     $this->conexion=mysql_connect($this->servidor,$this->usuario,$this->clave);
     mysql_select_db($this->basededatos,$this->conexion);
-    mysql_query("SET NAMES 'utf8'");
   }
 
   function ejecutar($sql)

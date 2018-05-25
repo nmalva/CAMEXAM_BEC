@@ -30,7 +30,7 @@ function getExaInfo($exa_id){
     $sql="SELECT * FROM Exam INNER JOIN TypeExam on Exam.tye_id=TypeExam.tye_id WHERE exa_id={$exa_id}";
     $resultado=$class_bd->ejecutar($sql);
     $r=$class_bd->retornar_fila($resultado);   
-	echo "{$r["tye_name"]} Exam <small>( {$class_utiles->fecha_mysql_php($r["exa_date"])})</small>";	
+    echo "{$r["tye_name"]} Exam <small>( {$class_utiles->fecha_mysql_php($r["exa_date"])})</small>";    
 }
 
 
@@ -114,7 +114,7 @@ function write_candidate($session_prc_id, $get_exa_id, $field_visible){
         $line.="</tr>";
          
          echo $line;
-      }		      
+      }           
     }
 
 
@@ -171,13 +171,13 @@ function get_newepaname($can_packingcodespeaking){
 
 <!-- BEGIN PAGE LEVEL STYLES USED BY TABLE-->
 <link rel="stylesheet" type="text/css"
-	href="../../assets/global/plugins/select2/select2.css" />
+    href="../../assets/global/plugins/select2/select2.css" />
 <link rel="stylesheet" type="text/css"
-	href="../../assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    href="../../assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="../../assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    href="../../assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
 <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
 
@@ -185,8 +185,8 @@ function get_newepaname($can_packingcodespeaking){
 <link rel="stylesheet" type="text/css"
     href="../../assets/global/plugins/bootstrap-toastr/toastr.min.css" />
 <!-- END PAGE LEVEL STYLES -->
-	
-	
+    
+    
 <!-- END PAGE LEVEL STYLES -->
 
 
@@ -201,32 +201,32 @@ function get_newepaname($can_packingcodespeaking){
 <!-- DOC: Apply "page-header-top-fixed" class to set the top menu fixed  -->
 
 <body>
-	<!-- BEGIN HEADER -->
-	<div class="page-header">
-		<!-- BEGIN HEADER TOP -->
-	    <?php include("includes/headertop.php");?>
-	<!-- END HEADER TOP -->
-		<!-- BEGIN HEADER MENU -->
-	   <?php include("includes/headermenu.php");?>
-	<!-- END HEADER MENU -->
-	</div>
-	<!-- END HEADER -->
-	<!-- BEGIN PAGE CONTAINER -->
-	<div class="page-container-fluid">
-		<!-- BEGIN PAGE HEAD -->
-		<div class="page-head">
-			<div class="container">
-				<!-- BEGIN PAGE TITLE -->
-				<div class="page-title">
-					<h1>
+    <!-- BEGIN HEADER -->
+    <div class="page-header">
+        <!-- BEGIN HEADER TOP -->
+        <?php include("includes/headertop.php");?>
+    <!-- END HEADER TOP -->
+        <!-- BEGIN HEADER MENU -->
+       <?php include("includes/headermenu.php");?>
+    <!-- END HEADER MENU -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN PAGE CONTAINER -->
+    <div class="page-container-fluid">
+        <!-- BEGIN PAGE HEAD -->
+        <div class="page-head">
+            <div class="container">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+                    <h1>
                         <?php getExaInfo($get_exa_id);?>
-					</h1>
-				</div>
-				<!-- END PAGE TITLE -->
-				<!-- BEGIN PAGE TOOLBAR -->
-				<div class="page-toolbar">
-					<!-- BEGIN THEME PANEL -->
-					<div class="btn-group btn-theme-panel">
+                    </h1>
+                </div>
+                <!-- END PAGE TITLE -->
+                <!-- BEGIN PAGE TOOLBAR -->
+                <div class="page-toolbar">
+                    <!-- BEGIN THEME PANEL -->
+                    <div class="btn-group btn-theme-panel">
                     <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-settings"></i>
                     </a>
@@ -246,42 +246,42 @@ function get_newepaname($can_packingcodespeaking){
                         </div>
                     </div>
                 </div>
-					<!-- END THEME PANEL -->
-				</div>
-				<!-- END PAGE TOOLBAR -->
-			</div>
-		</div>
-		<!-- END PAGE HEAD -->
-		<!-- BEGIN PAGE CONTENT -->
-		<div class="page-content">
-			<div class="container-fluid">
-				<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-				<div class="modal fade" id="portlet-config" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true"></button>
-								<h4 class="modal-title">Modal title</h4>
-							</div>
-							<div class="modal-body">Widget settings form goes here</div>
-							<div class="modal-footer">
-								<button type="button" class="btn blue">Save changes</button>
-								<button type="button" class="btn default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
-				<!-- /.modal -->
-				<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-				<!-- BEGIN PAGE BREADCRUMB -->
-        			<ul class="page-breadcrumb breadcrumb">
-        				<li>
-        					<a href="candidate_table_admin.php?exa_id=<?php echo $get_exa_id;?>">Return</a><i class="fa fa-circle"></i>
-        				</li>
+                    <!-- END THEME PANEL -->
+                </div>
+                <!-- END PAGE TOOLBAR -->
+            </div>
+        </div>
+        <!-- END PAGE HEAD -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+            <div class="container-fluid">
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <div class="modal fade" id="portlet-config" tabindex="-1"
+                    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true"></button>
+                                <h4 class="modal-title">Modal title</h4>
+                            </div>
+                            <div class="modal-body">Widget settings form goes here</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn blue">Save changes</button>
+                                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="candidate_table_admin.php?exa_id=<?php echo $get_exa_id;?>">Return</a><i class="fa fa-circle"></i>
+                        </li>
 
 
                         <li>
@@ -304,188 +304,188 @@ function get_newepaname($can_packingcodespeaking){
                         </li>
 
 
-        			</ul>
-        			
-        			
-        			
-        			
-        		<div class="row">
-        		
-				<div class="col-md-4 ">
-					<!-- BEGIN SAMPLE FORM PORTLET-->
-					<div class="portlet light">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-cogs font-green-sharp"></i>
-								<span class="caption-subject font-green-sharp bold uppercase">SET PARAMETERS</span>
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-								<a href="javascript:;" class="remove">
-								</a>
-							</div>
-						</div>
-						<div class="portlet-body form">
-							<form role="form">
-								<div class="form-body">			
-									<div class="form-group">
-										
-										<div class="input-group">
-											<div class="input-icon">
-        										    <select name="epa_id" id="epa_id" data-placeholder="Select Packing Code" class="form-control">
-        										      <?php  getOption();?>
-        											</select>        											
-											</div>
-											<span class="input-group-btn">
-    									       <button id="genpassword" class="btn btn-success" type="button" onclick="set_packingcode();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
-    									    </span>
-											
-										</div>
-									</div>		 
-            			             <div class="form-group">
-                			             <div class="input-group">
-        									
-        									<input id="init_value" class="form-control" type="text" name="init_value" placeholder="Start number - Candidate # Init" />
-        									
-        									<span class="input-group-btn">
-        									<button id="genpassword" class="btn btn-success" type="button" onclick="set_candidate();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
-        									</span>
-        								</div>
+                    </ul>
+                    
+                    
+                    
+                    
+                <div class="row">
+                
+                <div class="col-md-4 ">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-cogs font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">SET PARAMETERS</span>
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse">
+                                </a>
+                                <a href="#portlet-config" data-toggle="modal" class="config">
+                                </a>
+                                <a href="javascript:;" class="reload">
+                                </a>
+                                <a href="javascript:;" class="remove">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <form role="form">
+                                <div class="form-body">         
+                                    <div class="form-group">
+                                        
+                                        <div class="input-group">
+                                            <div class="input-icon">
+                                                    <select name="epa_id" id="epa_id" data-placeholder="Select Packing Code" class="form-control">
+                                                      <?php  getOption();?>
+                                                    </select>                                                   
+                                            </div>
+                                            <span class="input-group-btn">
+                                               <button id="genpassword" class="btn btn-success" type="button" onclick="set_packingcode();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
+                                            </span>
+                                            
+                                        </div>
+                                    </div>       
+                                     <div class="form-group">
+                                         <div class="input-group">
+                                            
+                                            <input id="init_value" class="form-control" type="text" name="init_value" placeholder="Start number - Candidate # Init" />
+                                            
+                                            <span class="input-group-btn">
+                                            <button id="genpassword" class="btn btn-success" type="button" onclick="set_candidate();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
+                                            </span>
+                                        </div>
                                     </div>
-        			          </div> 
-        			         </form>
-        			     </div>
-        			   </div>
+                              </div> 
+                             </form>
+                         </div>
+                       </div>
                     </div>
                     
                     
-                    		
+                            
                     
                     
                     <div class="col-md-8 ">
-					<!-- BEGIN SAMPLE FORM PORTLET-->
-					<div class="portlet light">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-cogs font-green-sharp"></i>
-								<span class="caption-subject font-green-sharp bold uppercase">SET TIME</span>
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-								<a href="javascript:;" class="remove">
-								</a>
-							</div>
-						</div>
-						
-						<div class="portlet-body form">
-							<form role="form">
-								<div class="form-body">	
-								    <div class="row">		
-    								 <div class="form-group">
-    										<label class="control-label col-md-1" style="display: <?php echo $field_visible['listening'];?>">L</label>
-    										<div class="col-md-3" style="display: <?php echo $field_visible['listening'];?>">
-    											<div class="input-group">
-    												<input type="text" class="form-control timepicker timepicker-24" id='can_timelistening' name='can_timelistening'>
-    												<span class="input-group-btn">
-    												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-    												</span>
-    											</div>
-    										</div>
-    										<label class="control-label col-md-1" style="display: <?php echo $field_visible['writing'];?>">W</label>
-    										<div class="col-md-3" style="display: <?php echo $field_visible['writing'];?>">
-    											<div class="input-group">
-    												<input type="text" class="form-control timepicker timepicker-24" id='can_timewriting' name='can_timewriting'>
-    												<span class="input-group-btn">
-    												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-    												</span>
-    											</div>
-    										</div>
-    										<label class="control-label col-md-1" style="display: <?php echo $field_visible['reading'];?>">R</label>
-    										<div class="col-md-3">
-    											<div class="input-group" style="display: <?php echo $field_visible['reading'];?>">
-    												<input type="text" class="form-control timepicker timepicker-24" id='can_timereading' name='can_timereading'>
-    												<span class="input-group-btn">
-    												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-    												</span>
-    											</div>
-    										</div>
-    								   </div>
-    								 </div>
-    								  <span><br/></span>
-    								 <div class="row">		
-        								 <div class="form-group">
-        										<label class="control-label col-md-1" style="display: <?php echo $field_visible['readingandwriting'];?>">R&W</label>
-        										<div class="col-md-3" style="display: <?php echo $field_visible['readingandwriting'];?>">
-        											<div class="input-group">
-        												<input type="text" class="form-control timepicker timepicker-24" id='can_timereadingandwriting' name='can_timereadingandwriting'>
-        												<span class="input-group-btn">
-        												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-        												</span>
-        											</div>
-        										</div>
-        										<label class="control-label col-md-1" style="display: <?php echo $field_visible['readinganduseofenglish'];?>">R&UoE</label>
-        										<div class="col-md-3" style="display: <?php echo $field_visible['readinganduseofenglish'];?>">
-        											<div class="input-group">
-        												<input type="text" class="form-control timepicker timepicker-24" id='can_timereadinganduseofe' name='can_timereadinganduseofe'>
-        												<span class="input-group-btn">
-        												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-        												</span>
-        											</div>
-        										</div>
-        										<label class="control-label col-md-1"> </label>
-        										<div class="col-md-3">
-        											<div class="input-group">
-        												<input type="text" class="form-control">
-        												<span class="input-group-btn">
-        												<button id="genpassword" class="btn btn-success" type="button"  onclick="set_cantimevarious();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
-        												</span>
-        											</div>
-        										</div>
-        								   </div>
-    								  </div>
-    								 <span><br/><br/><br/></span>
-    								 <div class="row">	
-        								 <div class="form-group">
-        										<label class="control-label col-md-1">Start</label>
-        										<div class="col-md-3">
-        											<div class="input-group">
-        												<input type="text" class="form-control timepicker timepicker-24" id='time_start_speaking' name='time_start_speaking'>
-        												<span class="input-group-btn">
-        												<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-        												</span>
-        											</div>
-        										</div>
-        										<label class="control-label col-md-1">Inter.</label>
-        										<div class="col-md-3">
-        											<div class="input-group">
-        												<input type="text" class="form-control" id='time_interval' name='time_interval' placeholder="min. between exams">
-        											</div>
-        										</div>
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-cogs font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase">SET TIME</span>
+                            </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse">
+                                </a>
+                                <a href="#portlet-config" data-toggle="modal" class="config">
+                                </a>
+                                <a href="javascript:;" class="reload">
+                                </a>
+                                <a href="javascript:;" class="remove">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="portlet-body form">
+                            <form role="form">
+                                <div class="form-body"> 
+                                    <div class="row">       
+                                     <div class="form-group">
+                                            <label class="control-label col-md-1" style="display: <?php echo $field_visible['listening'];?>">L</label>
+                                            <div class="col-md-3" style="display: <?php echo $field_visible['listening'];?>">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control timepicker timepicker-24" id='can_timelistening' name='can_timelistening' value="0:00">
+                                                    <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <label class="control-label col-md-1" style="display: <?php echo $field_visible['writing'];?>">W</label>
+                                            <div class="col-md-3" style="display: <?php echo $field_visible['writing'];?>">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control timepicker timepicker-24" id='can_timewriting' name='can_timewriting' value="0:00">
+                                                    <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <label class="control-label col-md-1" style="display: <?php echo $field_visible['reading'];?>">R</label>
+                                            <div class="col-md-3">
+                                                <div class="input-group" style="display: <?php echo $field_visible['reading'];?>">
+                                                    <input type="text" class="form-control timepicker timepicker-24" id='can_timereading' name='can_timereading' value="0:00">
+                                                    <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                       </div>
+                                     </div>
+                                      <span><br/></span>
+                                     <div class="row">      
+                                         <div class="form-group">
+                                                <label class="control-label col-md-1" style="display: <?php echo $field_visible['readingandwriting'];?>">R&W</label>
+                                                <div class="col-md-3" style="display: <?php echo $field_visible['readingandwriting'];?>">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control timepicker timepicker-24" id='can_timereadingandwriting' name='can_timereadingandwriting' value="0:00">
+                                                        <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label class="control-label col-md-1" style="display: <?php echo $field_visible['readinganduseofenglish'];?>">R&UoE</label>
+                                                <div class="col-md-3" style="display: <?php echo $field_visible['readinganduseofenglish'];?>">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control timepicker timepicker-24" id='can_timereadinganduseofe' name='can_timereadinganduseofe' value="0:00">
+                                                        <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label class="control-label col-md-1"> </label>
+                                                <div class="col-md-3">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                        <button id="genpassword" class="btn btn-success" type="button"  onclick="set_cantimevarious();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                           </div>
+                                      </div>
+                                     <span><br/><br/><br/></span>
+                                     <div class="row">  
+                                         <div class="form-group">
+                                                <label class="control-label col-md-1">Start</label>
+                                                <div class="col-md-3">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control timepicker timepicker-24" id='time_start_speaking' name='time_start_speaking' value="0:00" >
+                                                        <span class="input-group-btn">
+                                                        <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label class="control-label col-md-1">Inter.</label>
+                                                <div class="col-md-3">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id='time_interval' name='time_interval' placeholder="min. between exams">
+                                                    </div>
+                                                </div>
 
-        										<label class="control-label col-md-1">Group </label>
-        										<div class="col-md-3">
-        											<div class="input-group">
-        												<input type="text" class="form-control" id='time_group' name='time_group'>
-        												<span class="input-group-btn">
-        												<button id="genpassword" class="btn btn-success" type="button" onclick="set_cantimespeaking();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
-        												</span>
-        											</div>
-        										</div>
+                                                <label class="control-label col-md-1">Group </label>
+                                                <div class="col-md-3">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id='time_group' name='time_group'>
+                                                        <span class="input-group-btn">
+                                                        <button id="genpassword" class="btn btn-success" type="button" onclick="set_cantimespeaking();"><i class="fa fa-arrow-left fa-fw"/></i> Set</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
 
-        								   </div>
-    								  </div>
+                                           </div>
+                                      </div>
                                     <br/>
-        								  <div class="row">  
+                                          <div class="row">  
                                             <div class="form-group">
                                             <label class="control-label col-md-1">Fecha</label>
                                             <div class="col-md-3">
@@ -517,10 +517,10 @@ function get_newepaname($can_packingcodespeaking){
 
                                         </div>
                                     </div>
-        			             </div>  			             
-        			         </form>
-        			     </div>
-        			   </div>
+                                 </div>                          
+                             </form>
+                         </div>
+                       </div>
                     </div>
                     
         
@@ -528,69 +528,69 @@ function get_newepaname($can_packingcodespeaking){
    
                     </div>
                     
-        			
-			<!-- END PAGE BREADCRUMB -->
-				<!-- BEGIN PAGE CONTENT INNER -->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					
-						<!-- END EXAMPLE TABLE PORTLET-->
-					
-						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-					<div class="portlet light bordered">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-cogs font-green-sharp"></i>
-								<span class="caption-subject font-green-sharp bold uppercase" onclick="chequear();">Candidate Table</span>
-							</div>
-						</div>
-								
-							<div class="portlet-body">
-							<table class="table table-striped table-bordered table-hover" id="sample_1">
-									<thead>
-										<tr>
-										    <th class="table-checkbox">
-									            <input type="checkbox" class="group-checkable" name="check" ide='check' data-set="#sample_1 .checkboxes"/>
-							             	</th>
-											<th>ID</th>
-										    <th>First Name</th>
-											<th>Last Name</th>
-											<th>Venue</th>
-										    <th>Prep. Centre</th> 	
-											<th>Can #</th>
-											<th>P. Code</th>
+                    
+            <!-- END PAGE BREADCRUMB -->
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    
+                        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-cogs font-green-sharp"></i>
+                                <span class="caption-subject font-green-sharp bold uppercase" onclick="chequear();">Candidate Table</span>
+                            </div>
+                        </div>
+                                
+                            <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-hover" id="sample_1">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-checkbox">
+                                                <input type="checkbox" class="group-checkable" name="check" ide='check' data-set="#sample_1 .checkboxes"/>
+                                            </th>
+                                            <th>ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Venue</th>
+                                            <th>Prep. Centre</th>   
+                                            <th>Can #</th>
+                                            <th>P. Code</th>
                                             <th>Date S.</th>
                                             <th>Time S.</th>
                                             <th>P. Code S.</th>
                                             <th style="display: <?php echo $field_visible["readingandwriting"];?>">Time R&W</th>
                                             <th style="display: <?php echo $field_visible["readinganduseofenglish"];?>">Time R&UoE</th>
                                             <th style="display: <?php echo $field_visible["writing"];?>">Time W.</th>
-											<th style="display: <?php echo $field_visible["listening"];?>">Time L.</th>
+                                            <th style="display: <?php echo $field_visible["listening"];?>">Time L.</th>
                                             <th style="display: <?php echo $field_visible["reading"];?>">Time R.</th>
                                       
                                             
-										</tr>
-									</thead>
-							<tbody>
-							<?php 
-							    write_candidate($session_prc_id, $get_exa_id, $field_visible);							
-							?>
-							</tbody>
-						    </table>
-											
-								
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
-					</div>
-				</div>
-				<!-- END PAGE CONTENT INNER -->
-			</div>
-		</div>
-		<!-- END PAGE CONTENT -->
-	</div>
-	<!-- END PAGE CONTAINER -->
+                                        </tr>
+                                    </thead>
+                            <tbody>
+                            <?php 
+                                write_candidate($session_prc_id, $get_exa_id, $field_visible);                          
+                            ?>
+                            </tbody>
+                            </table>
+                                            
+                                
+                            </div>
+                        </div>
+                        <!-- END EXAMPLE TABLE PORTLET-->
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT INNER -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END PAGE CONTAINER -->
 <!-- BEGIN PRE-FOOTER -->
 <?php //include("includes/prefooter.html")?>
 <!-- END PRE-FOOTER -->
@@ -618,19 +618,19 @@ function get_newepaname($can_packingcodespeaking){
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script type="text/javascript"
-	src="../../assets/global/plugins/select2/select2.min.js"></script>
+    src="../../assets/global/plugins/select2/select2.min.js"></script>
 <script type="text/javascript"
-	src="../../assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+    src="../../assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
-	src="../../assets/global/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    src="../../assets/global/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
 <script type="text/javascript"
-	src="../../assets/global/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+    src="../../assets/global/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
 <script type="text/javascript"
-	src="../../assets/global/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
+    src="../../assets/global/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
 <script type="text/javascript"
-	src="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
-	
-	
+    src="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+    
+    
 
 <script type="text/javascript" src="../../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
 <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
@@ -643,12 +643,12 @@ function get_newepaname($can_packingcodespeaking){
 <script src="../../assets/admin/pages/scripts/ui-toastr.js"></script>
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="../../assets/global/scripts/metronic.js"
-	type="text/javascript"></script>
+    type="text/javascript"></script>
 <script src="../../assets/admin/layout3/scripts/layout.js"
-	type="text/javascript"></script>
+    type="text/javascript"></script>
 <script src="../../assets/admin/layout3/scripts/demo.js"
-	type="text/javascript"></script>
-	<script src="../../assets/global/plugins/icheck/icheck.min.js"></script>
+    type="text/javascript"></script>
+    <script src="../../assets/global/plugins/icheck/icheck.min.js"></script>
 <script src="../../assets/admin/pages/scripts/table-managed.js"></script>
 
 <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
@@ -656,21 +656,21 @@ function get_newepaname($can_packingcodespeaking){
 
 <script>
 jQuery(document).ready(function() {       
-	   Metronic.init(); // init metronic core components
-		Layout.init(); // init current layout
-		Demo.init(); // init demo features
-	    TableManaged.init();
-	    ComponentsPickers.init();
+       Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        Demo.init(); // init demo features
+        TableManaged.init();
+        ComponentsPickers.init();
         UIToastr.init(); //used by toastr
-	});
+    });
 
 //--START JAVASCRIPT FUNCTIONS--
 function redirect(can_id){
-	pagina = "candidate_form.php?can_id="+ can_id;
-	setTimeout(redireccionar, 100, pagina);
+    pagina = "candidate_form.php?can_id="+ can_id;
+    setTimeout(redireccionar, 100, pagina);
 }
 function redireccionar(pagina) {
-    location.href=pagina;	          
+    location.href=pagina;             
 }   
 function export_excel_listening(exa_id){
     mensaje =   "Do you want to export this table to Excel Format?";
@@ -721,41 +721,41 @@ function export_excel_rw(exa_id){
     }
 }
 function updateStatus(can_id, can_status){
-	//showUpdateCheck();
-	$.ajax({
+    //showUpdateCheck();
+    $.ajax({
         url:"../abm/abm.candidate.php",
         type: "POST",
         data:{can_id:can_id, can_status:can_status}, 
         success: function(opciones){ 
-        	//hideUpdateCheck();				
+            //hideUpdateCheck();                
           }
        });
 }
 function updateCandidateNum(can_id, can_candidatenum){
-	//showUpdateCheck();
-	if(can_candidatenum!=""){
-    	$.ajax({
+    //showUpdateCheck();
+    if(can_candidatenum!=""){
+        $.ajax({
             url:"../abm/abm.candidate.php",
             type: "POST",
             data:{can_id:can_id, can_candidatenum:can_candidatenum}, 
             success: function(opciones){ 
-            	//alert(opciones);	
+                //alert(opciones);  
               }
            });
-	}
+    }
 }
 function updatePackingCode(can_id, can_packingcode){
-	//showUpdateCheck();
-	if (can_packingcode!=""){            //To avoid the err blank field
-    	$.ajax({
+    //showUpdateCheck();
+    if (can_packingcode!=""){            //To avoid the err blank field
+        $.ajax({
             url:"../abm/abm.candidate.php",
             type: "POST",
             data:{can_id:can_id, can_packingcode:can_packingcode}, 
             success: function(opciones){ 
-            	//alert(opciones);
+                //alert(opciones);
               }
            });
-	}
+    }
 }
 function showUpdateCheck(){
     this.document.getElementById("update_check").style.display = 'inline';
@@ -765,13 +765,13 @@ function hideUpdateCheck(){
     }
     
 function set_candidate(){
-	var ids;
-	var init_value;
-	var set;
-	
+    var ids;
+    var init_value;
+    var set;
+    
     ids = $('input[type=checkbox]:checked').map(function() {
-  	    return $(this).attr('id');
-   	   }).get();
+        return $(this).attr('id');
+       }).get();
     init_value= this.document.getElementById("init_value").value
     set="set_candidate";
     // alert('IDS: ' + ids.join(', '));
@@ -788,13 +788,13 @@ function set_candidate(){
 }
 
 function set_packingcode(){
-	var ids;
-	var epa_id;
-	var set;
-	
+    var ids;
+    var epa_id;
+    var set;
+    
     ids = $('input[type=checkbox]:checked').map(function() {
-  	    return $(this).attr('id');
-   	   }).get();  
+        return $(this).attr('id');
+       }).get();  
     epa_id= this.document.getElementById("epa_id").value        
     set="set_packingcode";
     
@@ -841,16 +841,16 @@ function set_packingcode_speaking(){
 
 function set_cantimespeaking(){
 
-	var ids;
-	var time_interval;
-	var time_start_speaking;
-	var time_group;
+    var ids;
+    var time_interval;
+    var time_start_speaking;
+    var time_group;
     var can_datespeaking;
 
-	var set;
+    var set;
     ids = $('input[type=checkbox]:checked').map(function() {
-  	    return $(this).attr('id');
-   	   }).get();  
+        return $(this).attr('id');
+       }).get();  
     time_interval= this.document.getElementById("time_interval").value  
     time_start_speaking= this.document.getElementById("time_start_speaking").value
     time_group= this.document.getElementById("time_group").value   
@@ -871,17 +871,17 @@ function set_cantimespeaking(){
 }
 
 function set_cantimevarious(){
-	var ids;
-	var can_timelistening;
-	var can_timewriting;
-	var can_timereading;
-	var can_timereadingandwriting;
-	var can_timereadinganduseofe;
-	
-	var set;
+    var ids;
+    var can_timelistening;
+    var can_timewriting;
+    var can_timereading;
+    var can_timereadingandwriting;
+    var can_timereadinganduseofe;
+    
+    var set;
     ids = $('input[type=checkbox]:checked').map(function() {
-  	    return $(this).attr('id');
-   	   }).get();  
+        return $(this).attr('id');
+       }).get();  
     can_timelistening= this.document.getElementById("can_timelistening").value
     can_timewriting= this.document.getElementById("can_timewriting").value
     can_timereading= this.document.getElementById("can_timereading").value
