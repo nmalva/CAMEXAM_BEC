@@ -1,4 +1,5 @@
 <?php include ("includes/title.php");?>
+<?php include ("includes/security_admin.php");?>
 <?php include ("includes/security_session.php");?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +106,7 @@ function getDates($exams, $session_use_usetype, $year){
 		<div class="container">
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">
-				<h1>Exam Menu <small>Select the exam to add or update a candidate</small></h1>
+				<h1>Report Menu <small>Select the exam to add or update a candidate</small></h1>
 			</div>
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PAGE TOOLBAR -->
@@ -146,10 +147,8 @@ function getDates($exams, $session_use_usetype, $year){
 			<!-- BEGIN PAGE BREADCRUMB -->
 			<ul class="page-breadcrumb breadcrumb">
 				<li>
-					<a href="#">Home</a> <i style="display: <?php if ($session_use_usertype>1)echo "none";?>;" class="fa fa-circle"></i>
-					<a href="candidate_table_admin_general.php?year=2018" style="display: <?php if ($session_use_usertype>1)echo "none";?>;">General Table</a> <i style="display: <?php if ($session_use_usertype>1)echo "none";?>;" class="fa fa-circle"></i>
-
-					<a href="exam_menu_dashboard.php?year=2018" style="display: <?php if ($session_use_usertype>1)echo "none";?>;">Dashboard</a>
+					<a href="exam_menu.php">Home</a> <i style="display: <?php if ($session_use_usertype>1)echo "none";?>;" class="fa fa-circle"></i>
+					<a href="candidate_table_admin_general.php?year=2018" style="display: <?php if ($session_use_usertype>1)echo "none";?>;">General Table</a>
 				</li>		
 			</ul>
 			<!-- END PAGE BREADCRUMB -->
@@ -160,7 +159,7 @@ function getDates($exams, $session_use_usetype, $year){
 						<div class="portlet-title">
 							<div class="caption">
 								<i class="fa fa-cogs font-green-sharp"></i>
-								<span class="caption-subject font-green-sharp bold uppercase">Exam Tree</span>
+								<span class="caption-subject font-green-sharp bold uppercase">Report Tree</span>
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse">
@@ -173,19 +172,11 @@ function getDates($exams, $session_use_usetype, $year){
 						</div>
 						<div class="portlet-body">
 							<div id="tree_1" class="tree-demo">		 
-							 <?php 
-							 
-							 $stringExams=getStringExams("2015", $session_use_usetype);
-							 $stringExams1=getStringExams("2016", $session_use_usetype);
-							 $stringExams2=getStringExams("2017", $session_use_usetype);
-							 $stringExams3=getStringExams("2018", $session_use_usetype);
-
-							 echo "<ul><li data-jstree='{ \"icon\" : \"fa fa-folder icon-state-success\"}'>2015{$stringExams}</li></ul>";
-							 echo "<ul><li data-jstree='{ \"icon\" : \"fa fa-folder icon-state-success\"}'>2016{$stringExams1}</li></ul>";
-							 echo "<ul><li data-jstree='{ \"icon\" : \"fa fa-folder icon-state-success\"}'>2017{$stringExams2}</li></ul>";
-							  echo "<ul><li data-jstree='{ \"icon\" : \"fa fa-folder icon-state-success\"}'>2018{$stringExams3}</li></ul>";
-							 //echo "Para escapar caracteres se hace \"as�\".";							 
-							 ?>                          
+	
+							 <ul><li data-jstree='{ \"icon\" : \"fa fa-folder icon-state-success\"}'>
+							 	General
+								<ul><li data-jstree='{ \"icon\" : \"fa fa-file icon-state-success\" }' ondblclick='redireccionar("dashboard_interanual.php?");'> Interanual </a> </li></ul>
+							 </li></ul>                        
 							</div>
 						</div>
 					</div>
@@ -210,7 +201,7 @@ function getDates($exams, $session_use_usetype, $year){
 						
 							<ul class="list-group">
 								<li class="list-group-item">
-									Select an Exam to see the available information
+									Select a Report
 								</li>
 							</ul>
 						</div>
@@ -263,8 +254,8 @@ function writeInfo(exa_id){
           }
        });
     }
-function redirect(exa_id, use_usertype){
-    if (use_usertype==1 | use_usertype==0){
+function redirect(report){
+    if (report=="interanual"){
     	pagina = "candidate_table_admin.php?exa_id="+ exa_id;
     	setTimeout(redireccionar, 100, pagina);
         }

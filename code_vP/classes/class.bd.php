@@ -15,6 +15,8 @@ class bd
 
   function ejecutar($sql)
   {
+
+    mysql_query("SET NAMES 'utf8'");
     $resultados=@mysql_query($sql,$this->conexion);
     if (strpos(strtoupper($sql),"INSERT")!==false)       //lleva a mayuscula la consulta, y pregunta si esta insert en la cadena. con el fuckyng operador !== me devuelve true or false
     {
@@ -24,6 +26,8 @@ class bd
   }
   function ejecutar_charset($sql)
   {
+
+
     $resultados=@mysql_query($sql,$this->conexion);
     if (strpos(strtoupper($sql),"INSERT")!==false)       //lleva a mayuscula la consulta, y pregunta si esta insert en la cadena. con el fuckyng operador !== me devuelve true or false
     {

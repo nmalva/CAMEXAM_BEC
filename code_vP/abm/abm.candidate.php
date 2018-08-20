@@ -83,15 +83,15 @@ function updateStatus($campos){
 
 function insertUpdate($campos, $session_use_usertype){
     if ($campos["can_id"]==""){
-        if (checkdni($campos)=="false"){
+       // if (checkdni($campos)=="false"){ //it's cancel 4-8-2018 por que no les dejaba cargar dos candidatos con mismo dni
             $id=insert();
             if ($session_use_usertype<2 and $session_use_usertype!=NULL) {//it is admin or internal to get the candidates in workflow // The null its add because widthout session the status was setted to sent
                 $class_candidate= new Candidate($id);
                 $class_candidate->setCan_status(1);
             }   
-        }
-        else
-            echo "-10";
+      //  }
+       // else
+       //     echo "-10";
     }else{
         update();
     }
